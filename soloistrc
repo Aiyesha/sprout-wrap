@@ -103,5 +103,6 @@ node_attributes:
     cookbooks:
       - poptarts
       - simit
+      - mimosa
 
 

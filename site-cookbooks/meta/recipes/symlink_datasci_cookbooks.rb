@@ -11,10 +11,16 @@ end
 
 node['data_science']['cookbooks'].each do |name|
 
+  cookbook_repo = "#{workspace_dir}/datasci-#{name}-cookbook"
+  if ! File.directory?(cookbook_repo)
+    cookbook_repo = "#{workspace_dir}/#{name}-cookbook"
+  end
+
   link "#{cookbooks_dir}/#{name}" do
-    to "#{workspace_dir}/datasci-#{name}-cookbook"
+    to cookbook_repo
     owner node['current_user']
     action :create
+    only_if { File.directory?(cookbook_repo) }
   end
 
 end
