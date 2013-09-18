@@ -2,7 +2,7 @@
 include_recipe "pivotal_workstation::rbenv"
 include_recipe "sprout-osx-apps::rubymine"
 include_recipe "pivotal_workstation::gem_setup"  #setup /.gemrc ?
-include_recipe "meta::add_psych_gem_to_all_rubies"
+include_recipe "meta::add_extra_gems_to_all_rubies"
 
 # python
 include_recipe "meta::python"

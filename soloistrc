@@ -35,6 +35,8 @@ node_attributes:
       1.9.3-p448: {}
       1.9.3-p194: {}
     default_ruby: 1.9.3-p448
+    extra_gems:
+      - git-duet
   python:
     virtualenvs:
       simit: python2.7
@@ -61,6 +63,9 @@ node_attributes:
     - initials: db
       name: Dan Buch
       shortname: dan
+    - initials: kz
+      name: Kate Zimmerman
+      shortname: kate
   git_projects:
     -
       - sprout-wrap
@@ -76,6 +81,9 @@ node_attributes:
       - https://github.com/JuliaLang/julia-vim
       - .vim/bundle
     -
+      - mc-intelligence
+      - git@github.com:modcloth/mc-intelligence.git
+    -
       - datasci-simit
       - git@github.com:modcloth/datasci-simit.git
     -
@@ -88,11 +96,17 @@ node_attributes:
       - datasci-poptarts-cookbook
       - git@github.com:modcloth/datasci-poptarts-cookbook.git
     -
+      - datasci-blubber
+      - git@github.com:modcloth/datasci-blubber.git
+    -
+      - datasci-blubber-cookbook
+      - git@github.com:modcloth/datasci-blubber-cookbook.git
+#    -
+#      - mimosa
+#      - git@github.com:modcloth/mimosa.git
+    -
       - datasci-continental
       - git@github.com:modcloth/datasci-continental.git
-    -
-      - mc-intelligence
-      - git@github.com:modcloth/mc-intelligence.git
     -
       - chef-repo
       - git@github.com:modcloth/chef-repo.git
