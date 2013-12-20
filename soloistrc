@@ -101,12 +101,18 @@ node_attributes:
     -
       - datasci-blubber-cookbook
       - git@github.com:modcloth/datasci-blubber-cookbook.git
+    -
+      - datasci-rolled-oats
+      - git@github.com:modcloth/datasci-rolled-oats.git
 #    -
 #      - mimosa
 #      - git@github.com:modcloth/mimosa.git
     -
       - datasci-continental
       - git@github.com:modcloth/datasci-continental.git
+    -
+      - datasci-continental-cookbook
+      - git@github.com:modcloth/datasci-continental-cookbook.git
     -
       - chef-repo
       - git@github.com:modcloth/chef-repo.git
@@ -117,6 +123,8 @@ node_attributes:
     cookbooks:
       - poptarts
       - simit
+      - blubber
+      - continental
       - mimosa
 
 
