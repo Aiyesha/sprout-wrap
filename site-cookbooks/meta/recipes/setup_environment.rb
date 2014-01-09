@@ -1,0 +1,8 @@
+include_recipe "meta::rename_machine"
+include_recipe "sprout-osx-base::bash_it"
+include_recipe "meta::create_custom_bash_it_themes"
+include_recipe "sprout-osx-base::workspace_directory"
+include_recipe "sprout-osx-base::homebrew"
+include_recipe "sprout-osx-settings::global_environment_variables"
+include_recipe "meta::create_custom_aliases"
+include_recipe "pivotal_workstation::create_var_chef_cache"

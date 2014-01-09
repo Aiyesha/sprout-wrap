@@ -1,77 +1,135 @@
+cookbook_paths:
+  - ./cookbooks
 recipes:
-
-# base (required by sprout)
-- sprout-osx-base::bash_it
-- pivotal_workstation::create_var_chef_cache
-- sprout-osx-base::homebrew
-
-# settings
-- pivotal_workstation::sshd_on
-- pivotal_workstation::inputrc
-- sprout-osx-settings::defaults_fast_key_repeat_rate
-- pivotal_workstation::locate_on
-- sprout-osx-settings::global_environment_variables
-
-# development (general)
-- sprout-osx-base::workspace_directory
-- pivotal_workstation::unix_essentials
-- sprout-osx-git::git_projects
-- pivotal_workstation::git_config_global_defaults
-- sprout-osx-git::git_scripts
-
-# development (rails)
-- sprout-osx-rbenv
-- pivotal_workstation::gem_setup
-- pivotal_workstation::mysql
-- pivotal_workstation::postgres
-- sprout-osx-apps::imagemagick
-- sprout-osx-apps::node_js
-- sprout-osx-apps::qt
-
-# apps
-- pivotal_workstation::screen_sharing_app
-- sprout-osx-apps::skype
-- sprout-osx-apps::shiftit
-- sprout-osx-apps::firefox
-- sprout-osx-apps::dropbox
-- sprout-osx-apps::chrome
-- pivotal_workstation::mouse_locator
-- sprout-osx-apps::menumeters
-- pivotal_workstation::bettertouchtool
-- sprout-osx-apps::ccmenu
-- pivotal_workstation::github_for_mac
-- sprout-osx-apps::gitx
-- sprout-osx-apps::iterm2
-- sprout-osx-apps::keycastr
-- sprout-osx-apps::virtualbox
-- sprout-osx-apps::vagrant
-
-# apps (editors)
-- sprout-osx-apps::textmate
-- sprout-osx-apps::textmate_bundles
-- sprout-osx-apps::textmate_preferences
-
-- sprout-osx-apps::macvim
-- sprout-osx-apps::ctags_exuberant
-
-- sprout-osx-apps::rubymine
-- sprout-osx-rubymine::preferences
+  - meta::setup_environment
+  - meta::setup_apps
+  - meta::datasci_languages
+  - meta::datasci_databases
+  - meta::datasci_tools_and_editors
+  - sprout-osx-git::git_projects
+  - meta::symlink_datasci_cookbooks
+  - meta::install_git_duet
 
 node_attributes:
-  git_pairs_domain: pivotallabs.com
+  machine:
+    name: aiyesha-sfo
+  workspace_directory: projects
+  bash_it:
+    theme: nibbler
+    enabled_plugins:
+      aliases:
+        - general
+        - bundler
+        - osx
+        - git
+      completion:
+        - defaults
+        - rake
+        - git
+        - ssh
+      plugins:
+        - osx
+        - rbenv
+        - ssh
+        - virtualenv
+        - tmux
+#  homebrew:
+#    repository: git@github.com:Homebrew/homebrew.git
+#    version: master
+  rbenv:
+    rubies:
+      1.9.3-p448: {}
+      1.9.3-p194: {}
+      2.0.0-p353: {}
+    default_ruby: 2.0.0-p353
+    default_gems:
+      - git-duet
+  python:
+    virtualenvs:
+      simit: python2.7
+      waffles: python2.7
+  lua:
+    rocks:
+      inspect:
+      busted:
+  mysql_root_password: pwd
+  mysql:
+    users:
+      travis:
+  vim:
+    font:
+      size: 12
+  git_pairs_domain: modcloth.com
   git_pairs_authors:
-    - initials: ah
-      name: Abhijit Hiremagalur
-      shortname: abhi
-    - initials: bc
-      name: Brian Cunnie
-      shortname: cunnie
-    - initials: jrhb
-      name: Jonathan Barnes
-    - initials: lw
-      name: Luke Winikates
-      shortname: lwinikates
+    - initials: am
+      name: Aiyesha Ma
+      shortname: a.ma
+    - initials: ms
+      name: Marcos Sainz
+      shortname: m.sainz
+    - initials: db
+      name: Dan Buch
+      shortname: dan
+    - initials: kz
+      name: Kate Zimmerman
+      shortname: k.zimmerman
+    - initials: ws
+      name: Bill Summer
+      shortname: w.summer
+    - initials: lh
+      name: Lance Halvorsen
+      shortname: l.halvorsen
   git_projects:
+#    -
+#      - sprout-wrap
+#      - git@github.com:Aiyesha/sprout-wrap.git
     -
-      - sprout-wrap
-      - https://github.com/pivotal-sprout/sprout-wrap.git
+      - julia
+      - https://github.com/JuliaLang/julia
+    -
+      - mc-intelligence
+      - git@github.com:modcloth/mc-intelligence.git
+    -
+      - datasci-simit
+      - git@github.com:modcloth/datasci-simit.git
+    -
+      - datasci-simit-cookbook
+      - git@github.com:modcloth/datasci-simit-cookbook.git
+    -
+      - datasci-poptarts
+      - git@github.com:modcloth/datasci-poptarts.git
+    -
+      - datasci-poptarts-cookbook
+      - git@github.com:modcloth/datasci-poptarts-cookbook.git
+    -
+      - datasci-blubber
+      - git@github.com:modcloth/datasci-blubber.git
+    -
+      - datasci-blubber-cookbook
+      - git@github.com:modcloth/datasci-blubber-cookbook.git
+    -
+      - datasci-rolled-oats
+      - git@github.com:modcloth/datasci-rolled-oats.git
+#    -
+#      - mimosa
+#      - git@github.com:modcloth/mimosa.git
+    -
+      - datasci-continental
+      - git@github.com:modcloth/datasci-continental.git
+    -
+      - datasci-continental-cookbook
+      - git@github.com:modcloth/datasci-continental-cookbook.git
+    -
+      - chef-repo
+      - git@github.com:modcloth/chef-repo.git
+    -
+      - chef-config-data-science
+      - git@github.com:modcloth/chef-config-data-science.git
+  data_science:
+    cookbooks:
+      - poptarts
+      - simit
+      - blubber
+      - continental
+#      - mimosa
+

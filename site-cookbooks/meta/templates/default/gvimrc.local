@@ -1,0 +1,8 @@
+<% if !node['vim'].nil? %>
+  <% if !node['vim']['font'].nil? %>
+set guifont=<%= node['vim']['font']['style'] || 'Menlo' %>:h<%= node['vim']['font']['size'] || 14 %>
+<% end %><% end %>
+set encoding=utf-8
+set tabstop=4
+let g:NERDTreeWinSize=40
+let g:auto_resize_width = 80
